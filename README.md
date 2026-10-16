@@ -6,7 +6,7 @@ An interactive, animated investor pitch deck for **Nexus AI Technologies Ltd** (
 
 **https://lois4801.github.io/nexus-ai-technologies-ltd/**
 
-[![Nexus AI Technologies Ltd — investor pitch deck preview](assets/readme-preview.jpg)](https://lois4801.github.io/nexus-ai-technologies-ltd/)
+[![Nexus AI Technologies Ltd — investor pitch deck preview](readme-preview.jpg)](https://lois4801.github.io/nexus-ai-technologies-ltd/)
 
 Click the image above to open the live deck.
 
@@ -74,7 +74,7 @@ The site uses a relative asset base (`base: './'` in `vite.config.ts`), so it wo
 ├── public/
 │   ├── img/                 # 4K imagery (hero, problem, platform, CTA)
 │   └── nexus-ai-business-plan.pdf
-├── assets/readme-preview.jpg
+├── readme-preview.jpg
 └── src/
     ├── main.tsx / App.tsx
     ├── index.css            # design tokens + utilities
