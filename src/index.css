@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Spector-inspired dark editorial system */
+    --nx-bg: #0c0b0a;
+    --nx-panel: #141210;
+    --nx-panel-2: #1a1714;
+    --nx-cream: #f1ede3;
+    --nx-cream-dim: #b8b2a4;
+    --nx-muted: #847e70;
+    --nx-red: #ff3b2f;
+    --nx-red-deep: #d42a20;
+    --nx-line: rgba(241, 237, 227, 0.09);
+    --nx-line-strong: rgba(241, 237, 227, 0.2);
+
+    --background: 30 6% 5%;
+    --foreground: 45 20% 92%;
+    --card: 30 8% 8%;
+    --card-foreground: 45 20% 92%;
+    --popover: 30 8% 8%;
+    --popover-foreground: 45 20% 92%;
+    --primary: 5 100% 59%;
+    --primary-foreground: 45 20% 96%;
+    --secondary: 30 8% 12%;
+    --secondary-foreground: 45 20% 92%;
+    --muted: 30 6% 14%;
+    --muted-foreground: 40 8% 55%;
+    --accent: 5 100% 59%;
+    --accent-foreground: 45 20% 96%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 40 10% 20%;
+    --input: 40 10% 20%;
+    --ring: 5 100% 59%;
+    --radius: 0.25rem;
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background: var(--nx-bg);
+    color: var(--nx-cream);
+    font-family: "Archivo", "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+  ::selection {
+    background: var(--nx-red);
+    color: #0c0b0a;
+  }
+  :focus-visible {
+    outline: 2px solid var(--nx-red);
+    outline-offset: 3px;
+  }
+}
+
+@layer utilities {
+  .font-mono2 {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+  }
+  .display {
+    font-family: "Archivo", sans-serif;
+    font-stretch: 118%;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 0.92;
+    text-transform: uppercase;
+  }
+  .display-wide {
+    font-stretch: 125%;
+  }
+  .kicker {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 0.6875rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--nx-muted);
+  }
+  .text-outline {
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--nx-cream);
+  }
+  .text-outline-red {
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--nx-red);
+  }
+  /* Y2K blueprint grid overlay */
+  .grid-bg {
+    background-image:
+      linear-gradient(var(--nx-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--nx-line) 1px, transparent 1px);
+    background-size: 72px 72px;
+  }
+  .grid-bg-fine {
+    background-image:
+      linear-gradient(rgba(241, 237, 227, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(241, 237, 227, 0.05) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Ticker marquee */
+@keyframes nx-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.nx-marquee {
+  animation: nx-marquee 36s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .nx-marquee { animation: none; }
+  html { scroll-behavior: auto; }
+}
+
+/* Thin scrollbar */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--nx-bg); }
+::-webkit-scrollbar-thumb { background: #2c2823; border-radius: 0; }
+::-webkit-scrollbar-thumb:hover { background: var(--nx-red); }
