@@ -6,7 +6,7 @@ An interactive, animated investor pitch deck for **Nexus AI Technologies Ltd** (
 
 **https://lois4801.github.io/nexus-ai-technologies-ltd/**
 
-[![Nexus AI Technologies Ltd — investor pitch deck preview](https://www.kimi.com/apiv2-files/sign-obj/kimi-fs%2Ffiles%2Fblob%2F190acec323acc5e724782d3becd9ec3236db8ad21375356f51231c11c291872d?filename=readme-preview.jpg&sig=Fy-aMnh3JNZdYO_kBwH0kDsaIa7Eedz1yr_24_RbsTU=&t=o)](https://lois4801.github.io/nexus-ai-technologies-ltd/)
+[![Nexus AI Technologies Ltd — investor pitch deck preview](assets/readme-preview.jpg)](https://lois4801.github.io/nexus-ai-technologies-ltd/)
 
 Click the image above to open the live deck.
 
@@ -57,16 +57,11 @@ npm run build    # outputs to dist/
 npm run preview
 ```
 
-> The four images in `public/img/` and `public/nexus-ai-business-plan.pdf` are fetched automatically during the CI build (see the workflow). For local development, place any images you like at `public/img/hero-bg.jpg`, `problem.jpg`, `platform.jpg`, `cta.jpg` and the plan at `public/nexus-ai-business-plan.pdf`.
+All imagery lives in the repo itself (`public/img/`), so local development and every future deployment work with zero external dependencies.
 
 ## Deployment
 
-`.github/workflows/deploy.yml` runs on every push to `main`:
-
-1. Installs dependencies (Node 22)
-2. Downloads the 4K imagery and the business-plan PDF
-3. Builds the site with Vite
-4. Publishes `dist/` to the `gh-pages` branch, which GitHub Pages serves at the live URL above
+`.github/workflows/deploy.yml` runs on every push to `main`: install (Node 22) → build with Vite → publish `dist/` to the `gh-pages` branch, which GitHub Pages serves at the live URL above.
 
 The site uses a relative asset base (`base: './'` in `vite.config.ts`), so it works under the project subpath and at any domain root.
 
@@ -76,6 +71,10 @@ The site uses a relative asset base (`base: './'` in `vite.config.ts`), so it wo
 ├── index.html
 ├── vite.config.ts / tailwind.config.js / postcss.config.js
 ├── .github/workflows/deploy.yml
+├── public/
+│   ├── img/                 # 4K imagery (hero, problem, platform, CTA)
+│   └── nexus-ai-business-plan.pdf
+├── assets/readme-preview.jpg
 └── src/
     ├── main.tsx / App.tsx
     ├── index.css            # design tokens + utilities
